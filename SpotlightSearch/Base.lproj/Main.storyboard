@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xw5-BG-b12">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="pBm-2H-EKX">
+            <objects>
+                <navigationController id="xw5-BG-b12" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZw-Oy-pCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UYR-0G-dgt" kind="relationship" relationship="rootViewController" id="hkQ-0G-rnZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mzd-fP-psY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-845" y="731"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="R66-3m-bnX">
+            <objects>
+                <viewController id="UYR-0G-dgt" customClass="ViewController" customModule="SpotlightSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e1J-wN-xph"/>
+                        <viewControllerLayoutGuide type="bottom" id="9q4-y4-xtk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IHp-js-PXv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npA-Yb-wsc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="568" id="bCh-GX-Zmk"/>
+                                    <constraint firstAttribute="width" constant="320" id="wVY-Sj-iqu"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wVY-Sj-iqu"/>
+                                    </mask>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="npA-Yb-wsc" secondAttribute="trailing" constant="-20" id="5Cd-Q0-3rE"/>
+                            <constraint firstItem="npA-Yb-wsc" firstAttribute="leading" secondItem="IHp-js-PXv" secondAttribute="leading" id="YXg-Ci-H6X"/>
+                            <constraint firstItem="npA-Yb-wsc" firstAttribute="leading" secondItem="IHp-js-PXv" secondAttribute="leadingMargin" constant="-20" id="ZQh-2Q-JfY"/>
+                            <constraint firstAttribute="trailing" secondItem="npA-Yb-wsc" secondAttribute="trailing" id="a54-Io-N23"/>
+                            <constraint firstItem="npA-Yb-wsc" firstAttribute="top" secondItem="IHp-js-PXv" secondAttribute="topMargin" id="gis-bd-nDi"/>
+                            <constraint firstItem="9q4-y4-xtk" firstAttribute="top" secondItem="npA-Yb-wsc" secondAttribute="bottom" id="ucv-2Q-aJa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5Cd-Q0-3rE"/>
+                                <exclude reference="ZQh-2Q-JfY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="s5X-9u-BCw"/>
+                    <connections>
+                        <outlet property="tableView" destination="npA-Yb-wsc" id="YcN-SQ-Br2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSy-uT-XNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194" y="400"/>
+        </scene>
+    </scenes>
+</document>
