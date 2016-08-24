@@ -10,8 +10,9 @@ import UIKit
 
 class BaseTableController: NSObject {
     var _targetTableView: UITableView!
-    var items = NSMutableArray()
+    var items = [AnyObject]()
     var sections = [AnyObject]()
+    var owner:UIViewController!
     
     func initWithTargetTableView(targetTableView:UITableView) -> NSObject {
         _targetTableView = targetTableView
@@ -56,12 +57,12 @@ class BaseTableController: NSObject {
         return section < items.count ? items.count : nil
     }
     
-    func updateWithListItem(listItems:NSMutableArray) {
+    func updateWithListItem(listItems:Array<AnyObject>) {
         items = listItems
         _targetTableView .reloadData()
     }
     
-    func updateWithListItem(listItem: NSMutableArray, listSections: Array<AnyObject>) {
+    func updateWithListItem(listItem: Array<AnyObject>, listSections: Array<AnyObject>) {
         items = listItem
         sections = listSections
         _targetTableView.reloadData()

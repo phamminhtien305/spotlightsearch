@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         controller.initWithTargetTableView(tableView)
+        controller.owner = self;
         loadMoviesInfo()
         navigationItem.title = "Comics"
     }
@@ -30,9 +31,9 @@ class ViewController: UIViewController {
 
     func loadMoviesInfo() {
         if let path = NSBundle.mainBundle().pathForResource("ComicsData", ofType: "plist") {
-            let listItem = NSMutableArray(contentsOfFile: path)
-            moviesInfo.addObject(listItem!)
-            controller.updateWithListItem(moviesInfo)
+            let listItem = NSArray(contentsOfFile: path) as! Array<[String: String]>
+            let listComicItem = ComicObject.createListObjectFromListDict(listItem)
+            controller.updateWithListItem([listComicItem])
         }
     }
     

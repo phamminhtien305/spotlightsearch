@@ -21,4 +21,8 @@ class HomeController: BaseTableController {
             return ComicCell.nibName()
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
 }

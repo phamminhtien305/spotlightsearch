@@ -23,16 +23,16 @@ class ComicCell: BaseTableViewCell {
     }
     
     override func configCellWithData(data: AnyObject?) {
-        let item = data as! [String: String]
-        self.lblTitle.text = item["Title"]!
-        self.lblDescription.text = item["Description"]!
-        self.lblRating.text = item["Rating"]!
-//        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: item.getThumbURL())!, completionHandler: { (data, response, error) in
-//            let image = UIImage(data: data!)
-//            dispatch_async(dispatch_get_main_queue(), {
-//                self.imgComic.image = image;
-//            })
-//        }).resume()
+        let item = data as! ComicObject
+        self.lblTitle.text = item.getTitle()
+        self.lblDescription.text = item.getDescription()
+        self.lblRating.text = item.getRating()
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: item.getImage())!, completionHandler: { (data, response, error) in
+            let image = UIImage(data: data!)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.imgComic.image = image;
+            })
+        }).resume()
         
     }
 }
