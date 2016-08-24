@@ -72,7 +72,6 @@ class BaseTableController: NSObject {
 extension BaseTableController:UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let item = self.itemAtIndexPath(indexPath)
-        let cell = self.getCellIdentify(item, returnClassName: true)
         let cellClass = self.getCellClass(indexPath)
         return cellClass.height()
     }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C40274C1D63208900BC6B9B"
+               BlueprintIdentifier = "6CF839401D6B5396005A9697"
                BuildableName = "SpotlightSearch.app"
                BlueprintName = "SpotlightSearch"
                ReferencedContainer = "container:SpotlightSearch.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C40274C1D63208900BC6B9B"
+            BlueprintIdentifier = "6CF839401D6B5396005A9697"
             BuildableName = "SpotlightSearch.app"
             BlueprintName = "SpotlightSearch"
             ReferencedContainer = "container:SpotlightSearch.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C40274C1D63208900BC6B9B"
+            BlueprintIdentifier = "6CF839401D6B5396005A9697"
             BuildableName = "SpotlightSearch.app"
             BlueprintName = "SpotlightSearch"
             ReferencedContainer = "container:SpotlightSearch.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C40274C1D63208900BC6B9B"
+            BlueprintIdentifier = "6CF839401D6B5396005A9697"
             BuildableName = "SpotlightSearch.app"
             BlueprintName = "SpotlightSearch"
             ReferencedContainer = "container:SpotlightSearch.xcodeproj">

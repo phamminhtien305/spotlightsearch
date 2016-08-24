@@ -9,8 +9,6 @@
 import UIKit
 
 class HomeController: BaseTableController {
-    
-    
     override func registerNibWithTargetTableView(targetTableView: UITableView) {
         targetTableView.registerNib(ComicCell.nib(), forCellReuseIdentifier: ComicCell.nibName())
     }
