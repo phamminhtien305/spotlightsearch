@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewController/HomeViewController/HomeController.swift"
-            timestampString = "493725772.683922"
+            filePath = "Modal/ComicObject.swift"
+            timestampString = "493786109.975713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getImage()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

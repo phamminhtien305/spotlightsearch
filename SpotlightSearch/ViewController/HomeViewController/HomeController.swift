@@ -13,7 +13,6 @@ class HomeController: BaseTableController {
         targetTableView.registerNib(ComicCell.nib(), forCellReuseIdentifier: ComicCell.nibName())
     }
     
-    
     override func getCellIdentify(item: AnyObject?, returnClassName: Bool) -> String {
         if returnClassName {
             return NSStringFromClass(ComicCell)
@@ -23,6 +22,8 @@ class HomeController: BaseTableController {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let comic = self.itemAtIndexPath(indexPath) as! ComicObject
+       let detailView = DetailComicViewController.initWithComicObject(comic)
+        self.owner.navigationController?.pushViewController(detailView, animated: true)
     }
 }

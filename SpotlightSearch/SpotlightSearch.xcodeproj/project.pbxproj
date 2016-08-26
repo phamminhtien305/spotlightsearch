@@ -20,6 +20,7 @@
 		6CF839631D6B53C4005A9697 /* ComicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF839601D6B53C4005A9697 /* ComicCell.xib */; };
 		6CF839641D6B53C4005A9697 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF839611D6B53C4005A9697 /* HomeController.swift */; };
 		6CF839681D6B5438005A9697 /* ComicsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CF839671D6B5438005A9697 /* ComicsData.plist */; };
+		9C670E7E1D6EE13D00B0E3EB /* thumbcomic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C670E7D1D6EE13D00B0E3EB /* thumbcomic.jpg */; };
 		9CA298691D6D947A00A05269 /* ComicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA298681D6D947A00A05269 /* ComicObject.swift */; };
 		9CA2986C1D6DA65000A05269 /* DetailComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA2986B1D6DA65000A05269 /* DetailComicViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		6CF839601D6B53C4005A9697 /* ComicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComicCell.xib; path = ViewController/HomeViewController/ComicCell.xib; sourceTree = "<group>"; };
 		6CF839611D6B53C4005A9697 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = ViewController/HomeViewController/HomeController.swift; sourceTree = "<group>"; };
 		6CF839671D6B5438005A9697 /* ComicsData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ComicsData.plist; sourceTree = "<group>"; };
+		9C670E7D1D6EE13D00B0E3EB /* thumbcomic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbcomic.jpg; sourceTree = "<group>"; };
 		9CA298681D6D947A00A05269 /* ComicObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicObject.swift; path = Modal/ComicObject.swift; sourceTree = "<group>"; };
 		9CA2986B1D6DA65000A05269 /* DetailComicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailComicViewController.swift; path = DetailComicViewController/DetailComicViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,11 +60,11 @@
 		6CF839381D6B5396005A9697 = {
 			isa = PBXGroup;
 			children = (
-				9CA2986A1D6DA62200A05269 /* DetailComicViewController */,
-				9CA298681D6D947A00A05269 /* ComicObject.swift */,
 				6CF839661D6B5414005A9697 /* Resource */,
-				6CF839651D6B53CB005A9697 /* HomeController */,
+				9CA2986A1D6DA62200A05269 /* DetailComicViewController */,
+				6CF839651D6B53CB005A9697 /* HomeViewController */,
 				6CF839561D6B53A9005A9697 /* Base */,
+				9C670E791D6E91A700B0E3EB /* Modal */,
 				6CF839431D6B5396005A9697 /* SpotlightSearch */,
 				6CF839421D6B5396005A9697 /* Products */,
 			);
@@ -99,7 +101,7 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		6CF839651D6B53CB005A9697 /* HomeController */ = {
+		6CF839651D6B53CB005A9697 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
 				6CF839461D6B5396005A9697 /* ViewController.swift */,
@@ -107,15 +109,24 @@
 				6CF839601D6B53C4005A9697 /* ComicCell.xib */,
 				6CF839611D6B53C4005A9697 /* HomeController.swift */,
 			);
-			name = HomeController;
+			name = HomeViewController;
 			sourceTree = "<group>";
 		};
 		6CF839661D6B5414005A9697 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9C670E7D1D6EE13D00B0E3EB /* thumbcomic.jpg */,
 				6CF839671D6B5438005A9697 /* ComicsData.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		9C670E791D6E91A700B0E3EB /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				9CA298681D6D947A00A05269 /* ComicObject.swift */,
+			);
+			name = Modal;
 			sourceTree = "<group>";
 		};
 		9CA2986A1D6DA62200A05269 /* DetailComicViewController */ = {
@@ -184,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C670E7E1D6EE13D00B0E3EB /* thumbcomic.jpg in Resources */,
 				6CF839681D6B5438005A9697 /* ComicsData.plist in Resources */,
 				6CF8394F1D6B5396005A9697 /* LaunchScreen.storyboard in Resources */,
 				6CF839631D6B53C4005A9697 /* ComicCell.xib in Resources */,
@@ -324,9 +336,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SpotlightSearch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MTLAB.SpotlightSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -336,9 +348,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SpotlightSearch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MTLAB.SpotlightSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

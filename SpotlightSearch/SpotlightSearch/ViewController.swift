@@ -18,10 +18,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.title = "Comics"
+        
         controller.initWithTargetTableView(tableView)
         controller.owner = self;
-        loadMoviesInfo()
-        navigationItem.title = "Comics"
+        
+        loadComicsInfo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func loadMoviesInfo() {
+    func loadComicsInfo() {
         if let path = NSBundle.mainBundle().pathForResource("ComicsData", ofType: "plist") {
             let listItem = NSArray(contentsOfFile: path) as! Array<[String: String]>
             let listComicItem = ComicObject.createListObjectFromListDict(listItem)

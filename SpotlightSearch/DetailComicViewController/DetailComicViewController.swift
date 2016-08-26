@@ -7,13 +7,39 @@
 //
 
 import UIKit
+import CoreSpotlight
+import MobileCoreServices
 
 class DetailComicViewController: BaseViewController {
-
+    
+    @IBOutlet var lbTitle: UILabel!
+    @IBOutlet var lbScore: UILabel!
+    @IBOutlet var thumb: UIImageView!
+    var comic:ComicObject!
+    var comicID:String!
+    
+    class func initWithComicObject(comic:ComicObject) -> DetailComicViewController {
+        let _self = DetailComicViewController.newViewController() as! DetailComicViewController
+        _self.comic = comic
+        return _self
+    }
+    
+    class func initWithComicID(comicID: String)-> DetailComicViewController{
+        let _self = DetailComicViewController.newViewController() as! DetailComicViewController
+        _self.comicID = comicID
+        return _self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if self.comic != nil {
+            setupView()
+        }else{
+            loadComicsInfo()
+        }
+        self .setupSearchableContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +47,61 @@ class DetailComicViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func loadComicsInfo() {
+        if let path = NSBundle.mainBundle().pathForResource("ComicsData", ofType: "plist") {
+            let listItem = NSArray(contentsOfFile: path) as! Array<[String: String]>
+            let listComicItem = ComicObject.createListObjectFromListDict(listItem)
+            for comic:ComicObject in listComicItem {
+                if comic.getTitle() == self.comicID {
+                    self.comic = comic
+                    setupView()
+                }
+            }
+        }
     }
-    */
+
+    func setupView(){
+        lbTitle.text = self.comic.getTitle()
+        lbScore.text = self.comic.getRating()
+        
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: self.comic.getImage())!) { (responseData, responseUrl, error) -> Void in
+            // if responseData is not null...
+            if let data = responseData{
+                // execute in UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.thumb.image = UIImage(data: data)
+                })
+            }
+        }.resume()
+    }
+    
+    
+    func setupSearchableContent() {
+        let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        // Set the title.
+        searchableItemAttributeSet.title = self.comic.getTitle()
+        // Set the movie image
+        searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource("thumbcomic", withExtension: "jpg")
+        // Set the description.
+        searchableItemAttributeSet.contentDescription = self.comic.getDescription()
+        
+        var keywords = [String]()
+        keywords.append(self.comic.getTitle())
+        keywords.append(self.comic.getDescription())
+        
+        searchableItemAttributeSet.keywords = keywords
+        let searchableItem = CSSearchableItem(uniqueIdentifier:self.comic.getTitle(), domainIdentifier: "com.comics", attributeSet: searchableItemAttributeSet)
+        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([searchableItem]) { (error: NSError?) -> Void in
+            if let error = error {
+                // Indexing error
+                print(error.description)
+            } else {
+                // Search item successfully indexed!
+            }
+        }
+        
+    }
+    
 
 }

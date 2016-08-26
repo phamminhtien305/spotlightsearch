@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     class func newViewController() -> UIViewController{
         let  storyboard = UIStoryboard(name: "Main", bundle: nil)
         let indentyfier = String(self)
-        return storyboard.instantiateViewControllerWithIdentifier(indentyfier)
+        return storyboard.instantiateViewControllerWithIdentifier(indentyfier)        
     }
     
     class func nibName() -> String{

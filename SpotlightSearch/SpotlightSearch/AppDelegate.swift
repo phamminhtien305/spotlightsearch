@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import CoreSpotlight
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        return true
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                let navigationController = self.window!.rootViewController as! UINavigationController
+                let detailComicVC = DetailComicViewController.initWithComicID(uniqueIdentifier);
+                navigationController.pushViewController(detailComicVC, animated: true)
+            }
+        }
         return true
     }
 
