@@ -82,7 +82,9 @@ class DetailComicViewController: BaseViewController {
         // Set the title.
         searchableItemAttributeSet.title = self.comic.getTitle()
         // Set the movie image
-        searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource("thumbcomic", withExtension: "jpg")
+        let data = NSData(contentsOfURL:NSURL(string: self.comic.getImage())!)
+        searchableItemAttributeSet.thumbnailData = data
+//        NSBundle.mainBundle().URLForResource("thumbcomic", withExtension: "jpg")
         // Set the description.
         searchableItemAttributeSet.contentDescription = self.comic.getDescription()
         
